@@ -1,6 +1,6 @@
 package designpatterns
 
-sealed abstract class Email(val value: String)
+sealed abstract case class Email(value: String)
 
 object Email {
 
@@ -12,9 +12,5 @@ object Email {
 
   private def isValidEmail(emailStr: String): Boolean =
     emailStr.nonEmpty && emailStr.contains("@")
-
-  def unapply(arg: Email): Option[String] = Some(arg.value)
-
-  def apply(str: String): Option[Email] = fromString(str)
 
 }
